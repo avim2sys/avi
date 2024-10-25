@@ -1,0 +1,618 @@
+{
+	"info": {
+		"_postman_id": "c0e0fd1f-fd99-4402-887b-bfcbdbfcda23",
+		"name": "Workflow Automation_WFD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11429379"
+	},
+	"item": [
+		{
+			"name": "Execute Workflow On delete record",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"269a1427-875b-463e-bcf3-cbd3bc784347\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.10\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Workflow On demand detail employee sync",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"d13c38e2-9d41-4dc1-89a1-382d677046d7\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Workflow On delete record searches",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "id",
+						"value": "4db32307-4578-42db-84c7-e16f651f7b13_7034119",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"\",\r\n        \"StartRow\": 0,\r\n        \"TotalRows\": 25,\r\n        \"TypeId\": \"24c4e417-fba6-47a1-9100-0ff165405ea8\",\r\n        \"MenuId\": \"8514e644-ce59-4e81-b073-f9791b7c98d3\",\r\n        \"FormViewId\": \"\",\r\n        \"Text\": \"\",\r\n        \"FilterConfigurations\": [\r\n            {\r\n                \"Condition\": \"AND\",\r\n                \"Rules\": [\r\n                    {\r\n                        \"Field\": \"stringField3\",\r\n                        \"Operator\": \"=\",\r\n                        \"Value\": \"8457\",\r\n                        \"TypeId\": \"\"\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"SortConfigurations\": [],\r\n        \"QueryString\": \"\",\r\n        \"SortString\": \"\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev-api.cloudapper.com/api/v2.0/Searches/fetch-records",
+					"protocol": "https",
+					"host": [
+						"dev-api",
+						"cloudapper",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2.0",
+						"Searches",
+						"fetch-records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save punch with job transfer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let currentDate = new Date().toISOString();\r",
+							"pm.environment.set(\"currentDate\", currentDate);\r",
+							"\r",
+							"\r",
+							"const uuid = require('uuid'); \r",
+							"let generatedId = uuid.v4();\r",
+							"pm.environment.set(\"generatedId\", generatedId);\r",
+							"\r",
+							"//console.log(\"Generated Date:\", currentDate);\r",
+							"//console.log(\"Generated UUID:\", generatedId);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"Items\": [\r\n            {\r\n                \"stringField3\": \"4356\",\r\n               // \"dateField0\": \"2024-10-02T14:32:00Z\",\r\n               \"dateField0\": \"{{currentDate}}\",\r\n                \"stringField0\": \"PUNCH\",\r\n                \"stringField1\": \"Pending\",\r\n                \"stringField2\": \"7102\",\r\n                \"stringField2ReferenceId\": \"4d4ba84e-9d8b-4b03-a12e-b6bb8652399a\",\r\n                \"stringField2ReferenceTypeId\": \"ebb34a03-7446-443d-90ee-bef6032dfd8c\",\r\n                \"stringField7\": \"7051\",\r\n                \"stringField7ReferenceId\": \"9e881b64-8e8b-42db-839e-e736f51e5acf\",\r\n                \"stringField7ReferenceTypeId\": \"ebb34a03-7446-443d-90ee-bef6032dfd8c\",\r\n                \"ParentId\": \"d4d0a1fe-1f71-4cf3-9e78-bb3ba4c0dc98\",\r\n                \"ParentTypeId\": \"24c4e417-fba6-47a1-9100-0ff165405ea8\",\r\n                \"ParentDisplayName\": \"Mofadal\",\r\n                \"DisplayName\": \"4356\",\r\n                \"TypeId\": \"b52a7778-63c0-4c16-bfbb-f2bf75d2e0ef\",\r\n                \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n                \"ClientId\": 1377442200002135,\r\n                \"id\": \"{{generatedId}}\",\r\n                \"CreateDate\": \"2024-10-03T08:32:56.849Z\",\r\n                \"CreatedBy\": \"RightPunch Dev\",\r\n                \"CreatedById\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n                \"Type\": 1,\r\n                \"Status\": 2\r\n            }\r\n        ]\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev-api.cloudapper.com/api/v2.0/Records/save-records?records-required=true",
+					"protocol": "https",
+					"host": [
+						"dev-api",
+						"cloudapper",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2.0",
+						"Records",
+						"save-records"
+					],
+					"query": [
+						{
+							"key": "records-required",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "synced record search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev-api.cloudapper.com/api/v2.0/searches/{{generatedId}}",
+					"protocol": "https",
+					"host": [
+						"dev-api",
+						"cloudapper",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2.0",
+						"searches",
+						"{{generatedId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Workflow On delete regular employee sync",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"091b8905-7bae-41cf-9101-97d9c43f0ae1\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Workflow On demand employee sync",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"90c22fb1-b070-4165-a9af-2b1fef35dd29\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Workflow On delete record regular searches",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "id",
+						"value": "4db32307-4578-42db-84c7-e16f651f7b13_7034119",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"\",\r\n        \"StartRow\": 0,\r\n        \"TotalRows\": 25,\r\n        \"TypeId\": \"d36ca2db-a607-45f7-a1d0-61a491581959\",\r\n        \"MenuId\": \"b2ba5222-7ccb-4517-986f-bfb73e086399\",\r\n        \"FormViewId\": \"\",\r\n        \"Text\": \"\",\r\n        \"FilterConfigurations\": [\r\n            {\r\n                \"Condition\": \"AND\",\r\n                \"Rules\": [\r\n                    {\r\n                        \"Field\": \"stringField2\",\r\n                        \"Operator\": \"=\",\r\n                        \"Value\": \"04301973\",\r\n                        \"TypeId\": \"\"\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"SortConfigurations\": [],\r\n        \"QueryString\": \"\",\r\n        \"SortString\": \"\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev-api.cloudapper.com/api/v2.0/Searches/fetch-records",
+					"protocol": "https",
+					"host": [
+						"dev-api",
+						"cloudapper",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2.0",
+						"Searches",
+						"fetch-records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete business structure",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"c8d04b83-c866-40a9-9942-e91588bc771a\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download WFD business structure",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"2a64ea5d-0a15-4d3d-83f7-bd3f1be89ce8\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search deleted business record.",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "id",
+						"value": "4db32307-4578-42db-84c7-e16f651f7b13_7034119",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppId\": \"34733170-2091-4539-81a2-284c344ce3fd\",\r\n    \"ClientId\": 1377442200002135,\r\n    \"UserId\": \"77583642-4003-47f6-a4a9-8fbdb9d596f1\",\r\n    \"UserName\": \"RightPunch Dev\",\r\n    \"Request\": {\r\n        \"AutomationId\": \"\",\r\n        \"StartRow\": 0,\r\n        \"TotalRows\": 25,\r\n        \"TypeId\": \"ebb34a03-7446-443d-90ee-bef6032dfd8c\",\r\n        \"MenuId\": \"03c4b0c7-7aec-4ec7-8c46-32e5858fa915\",\r\n        \"FormViewId\": \"\",\r\n        \"Text\": \"\",\r\n        \"FilterConfigurations\": [\r\n            {\r\n                \"Condition\": \"AND\",\r\n                \"Rules\": [\r\n                    {\r\n                        \"Field\": \"integerField0\",\r\n                        \"Operator\": \"=\",\r\n                        \"Value\": 7053,\r\n                        \"TypeId\": \"\"\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"SortConfigurations\": [],\r\n        \"QueryString\": \"\",\r\n        \"SortString\": \"\",\r\n        \"Variables\": {}\r\n    },\r\n    \"ClientPlatform\": 3,\r\n    \"ClientVersion\": \"5.26.0.8\",\r\n    \"ClientAppConfigVersion\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev-api.cloudapper.com/api/v2.0/Searches/fetch-records",
+					"protocol": "https",
+					"host": [
+						"dev-api",
+						"cloudapper",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2.0",
+						"Searches",
+						"fetch-records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "crm_client_create_service",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "de560eb9-24c6-44f4-9672-50fa0f2b0d2f",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev-account.cloudapper.com/connect/token?grant_type=client_credentials&client_id=identity_client_dev&client_secret=3db953dc2aaa43059c651fcf131be49f",
+					"protocol": "https",
+					"host": [
+						"dev-account",
+						"cloudapper",
+						"com"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						},
+						{
+							"key": "client_id",
+							"value": "identity_client_dev"
+						},
+						{
+							"key": "client_secret",
+							"value": "3db953dc2aaa43059c651fcf131be49f"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": ""
+		}
+	]
+}
