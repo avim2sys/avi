@@ -7,7 +7,120 @@
 	},
 	"item": [
 		{
+			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "crm_client_create_service",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "de560eb9-24c6-44f4-9672-50fa0f2b0d2f",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev-account.cloudapper.com/connect/token?grant_type=client_credentials&client_id=identity_client_dev&client_secret=3db953dc2aaa43059c651fcf131be49f",
+					"protocol": "https",
+					"host": [
+						"dev-account",
+						"cloudapper",
+						"com"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						},
+						{
+							"key": "client_id",
+							"value": "identity_client_dev"
+						},
+						{
+							"key": "client_secret",
+							"value": "3db953dc2aaa43059c651fcf131be49f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Execute Workflow On delete record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"MessageType is correct\", function () {\r",
+							"    pm.expect(response.MessageType).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"    pm.expect(response.Success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ResponseCode is 200\", function () {\r",
+							"    pm.expect(response.ResponseCode).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is 'Deleted successfully'\", function () {\r",
+							"    pm.expect(response.Message).to.eql(\"Deleted successfully\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -55,7 +168,40 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"MessageType is correct\", function () {\r",
+							"    pm.expect(response.MessageType).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"    pm.expect(response.Success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ResponseCode is 200\", function () {\r",
+							"    pm.expect(response.ResponseCode).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is 'Process executed successfully.'\", function () {\r",
+							"    pm.expect(response.Message).to.eql(\"Process executed successfully.\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -152,6 +298,7 @@
 							"\r",
 							"const uuid = require('uuid'); \r",
 							"let generatedId = uuid.v4();\r",
+							"\r",
 							"pm.environment.set(\"generatedId\", generatedId);\r",
 							"\r",
 							"//console.log(\"Generated Date:\", currentDate);\r",
@@ -255,6 +402,40 @@
 		},
 		{
 			"name": "Execute Workflow On delete regular employee sync",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"MessageType is correct\", function () {\r",
+							"    pm.expect(response.MessageType).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"    pm.expect(response.Success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ResponseCode is 200\", function () {\r",
+							"    pm.expect(response.ResponseCode).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is 'Deleted successfully'\", function () {\r",
+							"    pm.expect(response.Message).to.eql(\"Deleted successfully\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -302,7 +483,39 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"MessageType is correct\", function () {\r",
+							"    pm.expect(response.MessageType).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"    pm.expect(response.Success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ResponseCode is 200\", function () {\r",
+							"    pm.expect(response.ResponseCode).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is 'Process executed successfully.'\", function () {\r",
+							"    pm.expect(response.Message).to.eql(\"Process executed successfully.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -339,6 +552,40 @@
 		},
 		{
 			"name": "Execute Workflow On delete record regular searches",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"MessageType is 1\", function () {\r",
+							"    pm.expect(response.MessageType).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"    pm.expect(response.Success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ResponseCode is 200\", function () {\r",
+							"    pm.expect(response.ResponseCode).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is 'Fetched successfully'\", function () {\r",
+							"    pm.expect(response.Message).to.eql(\"Fetched successfully\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -388,6 +635,40 @@
 		},
 		{
 			"name": "delete business structure",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"MessageType is correct\", function () {\r",
+							"    pm.expect(response.MessageType).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"    pm.expect(response.Success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ResponseCode is 200\", function () {\r",
+							"    pm.expect(response.ResponseCode).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is 'Deleted successfully'\", function () {\r",
+							"    pm.expect(response.Message).to.eql(\"Deleted successfully\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -435,7 +716,39 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"MessageType is correct\", function () {\r",
+							"    pm.expect(response.MessageType).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"    pm.expect(response.Success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ResponseCode is 200\", function () {\r",
+							"    pm.expect(response.ResponseCode).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is 'Process executed successfully.'\", function () {\r",
+							"    pm.expect(response.Message).to.eql(\"Process executed successfully.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -472,6 +785,40 @@
 		},
 		{
 			"name": "search deleted business record.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"let response = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"MessageType is 1\", function () {\r",
+							"    pm.expect(response.MessageType).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"    pm.expect(response.Success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ResponseCode is 200\", function () {\r",
+							"    pm.expect(response.ResponseCode).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is 'Fetched successfully'\", function () {\r",
+							"    pm.expect(response.Message).to.eql(\"Fetched successfully\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -518,75 +865,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "token",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);\r",
-							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "grant_type",
-							"value": "client_credentials",
-							"type": "text"
-						},
-						{
-							"key": "client_id",
-							"value": "crm_client_create_service",
-							"type": "text"
-						},
-						{
-							"key": "client_secret",
-							"value": "de560eb9-24c6-44f4-9672-50fa0f2b0d2f",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "https://dev-account.cloudapper.com/connect/token?grant_type=client_credentials&client_id=identity_client_dev&client_secret=3db953dc2aaa43059c651fcf131be49f",
-					"protocol": "https",
-					"host": [
-						"dev-account",
-						"cloudapper",
-						"com"
-					],
-					"path": [
-						"connect",
-						"token"
-					],
-					"query": [
-						{
-							"key": "grant_type",
-							"value": "client_credentials"
-						},
-						{
-							"key": "client_id",
-							"value": "identity_client_dev"
-						},
-						{
-							"key": "client_secret",
-							"value": "3db953dc2aaa43059c651fcf131be49f"
-						}
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"event": [
@@ -607,12 +885,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "url",
-			"value": ""
 		}
 	]
 }
